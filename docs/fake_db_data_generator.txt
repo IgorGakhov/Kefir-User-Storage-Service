@@ -1,0 +1,66 @@
+'''Можно воссоздать в проекте для заполнения данных БД'''
+
+from random import choice, randint
+from datetime import date
+
+from passlib import hash as _hash
+
+from sqlalchemy.orm import Session
+from src.users.models import User, UserRole, City
+from src.core.database import Base, engine
+
+
+def startup_db_data(users_count=10):
+    # Создаем все таблицы в БД, если они еще не созданы
+    Base.metadata.create_all(bind=engine)
+
+    # Создаем объект сессии для доступа к БД
+    db = Session(bind=engine)
+
+    # Добавляем начальные города в таблицу City
+    cities = [
+        City(name="Moscow"),
+        City(name="St. Petersburg"),
+        City(name="Kazan"),
+        City(name="Krasnodar"),
+        City(name="Ekaterinburg"),
+        City(name="Rostov-on-Don"),
+        City(name="Bryansk"),
+        City(name="Yaroslavl'"),
+        City(name="Novosibirsk"),
+        City(name="Vladivostok"),
+    ]
+    db.add_all(cities)
+    db.commit()
+
+    users = []
+    for i in range(users_count):
+        user = User(
+            first_name=f'first_name{i+1}',
+            last_name=f'last_name{i+1}',
+            other_name=f'other_name{i+1}',
+            email=f'user{i+1}@' + choice(['google', 'yandex', 'mail']) + '.com',
+            phone=f'+7918{randint(1000000, 9999999)}',
+            birthday=date(randint(1980, 2010), randint(1, 12), randint(1, 28)),
+            hashed_password=_hash.bcrypt.hash(f'password{i+1}'),
+            city_id=randint(1, 10),
+            role=UserRole.superuser if i % 5 == 0 else UserRole.basic
+        )
+        users.append(user)
+
+    db.add_all(users)
+    db.commit()
+
+    # Закрываем сессию
+    db.close()
+
+
+# В файле main добавить:
+
+from ... import startup_db_data
+
+@app.on_event("startup")
+async def startup_event():
+    startup_db_data(users_count=20)
+
+* 20 - количество созданных пользователей

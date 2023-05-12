@@ -1,0 +1,13 @@
+# Environments
+.env
+*venv
+
+# Cache
+__pycache__
+
+# pyenv
+.python-version
+
+# Databases
+databases
+*.db

@@ -4,13 +4,8 @@ import uvicorn
 
 from src.core.handlers import \
     internal_exception_handler, client_http_exception_handler
-from src.core.database import Base, engine
 from src.auth.router import router as router_auth
 from src.users.router import router_users, router_admin
-
-
-# создаем таблицы в БД
-Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(

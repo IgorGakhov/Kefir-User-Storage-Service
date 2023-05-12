@@ -27,3 +27,6 @@ lint:
 
 freeze:
 	pip freeze > requirements.txt
+
+migrate:
+	alembic upgrade head

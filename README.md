@@ -2,7 +2,7 @@
 
 [![linter](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml/badge.svg?branch=main)](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml)
 
-*Применяемый стек: Python, FastAPI, SQLite, SQLAlchemy, FastAPI-JWT-Auth, flake8, venv.*
+*Применяемый стек: Python, FastAPI, SQLite, SQLAlchemy, Alembic, FastAPI-JWT-Auth, flake8, venv.*
 
 ### Summary
 * [Описание](#описание)
@@ -63,13 +63,19 @@ AUTH_JWT_SECRET_KEY=some-secret-key
 pip install -r requirements.txt
 ```
 
+6. Накатываем миграции:
+
+```Bash
+alembic upgrade head
+```
+
 Проверьте, что пакет установлен правильно, запустив приложение. Для этого выполните команду:
 
 ```Bash
 uvicorn src.main:app
 ```
 
-6. Если вы хотите выйти из виртуального окружения, выполните команду:
+7. Если вы хотите выйти из виртуального окружения, выполните команду:
 
 ```Bash
 deactivate

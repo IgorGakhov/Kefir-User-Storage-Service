@@ -1,6 +1,6 @@
 # Kefir User Storage Service
 
-[![linter](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml/badge.svg?branch=main)](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml)
+[![linter](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml/badge.svg?branch=main)](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/444eff433cd4b9b307c4/maintainability)](https://codeclimate.com/github/IgorGakhov/Kefir-User-Storage-Service/maintainability)
 
 *Применяемый стек: Python, FastAPI, SQLite, SQLAlchemy, Alembic, FastAPI-JWT-Auth, flake8, venv.*
 
@@ -69,13 +69,13 @@ pip install -r requirements.txt
 alembic upgrade head
 ```
 
-Проверьте, что пакет установлен правильно, запустив приложение. Для этого выполните команду:
+7. Проверьте, что пакет установлен правильно, запустив приложение. Для этого выполните команду:
 
 ```Bash
 uvicorn src.main:app
 ```
 
-7. Если вы хотите выйти из виртуального окружения, выполните команду:
+8. Если вы хотите выйти из виртуального окружения, выполните команду:
 
 ```Bash
 deactivate

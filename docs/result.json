@@ -34,6 +34,26 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodelessErrorResponseModel"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -52,7 +72,7 @@
         "tags": [
           "auth"
         ],
-        "summary": "Refresh",
+        "summary": "Обновление access токена",
         "operationId": "refresh_refresh_post",
         "responses": {
           "200": {
@@ -74,25 +94,6 @@
         "summary": "Выход из системы",
         "description": "При успешном выходе необходимо удалить установленные Cookies",
         "operationId": "logout_logout_get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        }
-      }
-    },
-    "/protected": {
-      "get": {
-        "tags": [
-          "auth"
-        ],
-        "summary": "Protected",
-        "operationId": "protected_protected_get",
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -879,6 +880,7 @@
       "PrivateDetailUserResponseModel": {
         "title": "PrivateDetailUserResponseModel",
         "required": [
+          "id",
           "first_name",
           "last_name",
           "other_name",
@@ -891,6 +893,10 @@
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
           "first_name": {
             "title": "First Name",
             "type": "string"

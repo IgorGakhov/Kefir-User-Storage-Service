@@ -6,10 +6,10 @@ from fastapi_jwt_auth.exceptions import JWTDecodeError
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 
-from src.core.config import AUTH_JWT_SECRET_KEY
+from core.config import AUTH_JWT_SECRET_KEY
 
-from src.users.models import User, UserRole
-from src.users.utils import get_user_by_id, get_user_by_login
+from users.models import User, UserRole
+from users.utils import get_user_by_id, get_user_by_login
 
 
 ACCESS_TOKEN_NAME: Final[str] = 'access_token_cookie'

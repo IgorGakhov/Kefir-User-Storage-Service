@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-from src.core.config import db_engine_settings
+from .config import db_engine_settings
 
 
 # создаем базовый класс для определения моделей таблиц

@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+
+  web:
+    container_name: user-storage-service
+    build: .
+    command: ["/app/app.sh"]
+    ports: 
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app.db
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

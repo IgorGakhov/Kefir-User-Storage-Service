@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, status
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 
-import src.core.database as db
-import src.core.handlers.exceptions as exc
-from src.auth.manager import AuthJWT, authenticate_user
-from src.users.schemas import CurrentUserResponseModel
+import core.database as db
+import core.handlers.exceptions as exc
+from .manager import AuthJWT, authenticate_user
+from users.schemas import CurrentUserResponseModel
 
 
 router = APIRouter(

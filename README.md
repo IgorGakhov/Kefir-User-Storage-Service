@@ -2,9 +2,9 @@
 
 [![linter](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml/badge.svg?branch=main)](https://github.com/IgorGakhov/Kefir-User-Storage-Service/actions/workflows/linter-checker.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/444eff433cd4b9b307c4/maintainability)](https://codeclimate.com/github/IgorGakhov/Kefir-User-Storage-Service/maintainability)
 
-*Применяемый стек: Python, FastAPI, SQLite, SQLAlchemy, Alembic, FastAPI-JWT-Auth, flake8, venv.*
+*Применяемый стек: Python, FastAPI, Docker, PostgreSQL, SQLAlchemy, Alembic, FastAPI-JWT-Auth, flake8, venv.*
 
-### Summary
+### Содержание
 * [Описание](#описание)
 * [Установка](#установка)
 * [Использование](#использование)
@@ -92,6 +92,26 @@ uvicorn src.main:app
 ```
 
 После этого веб-сервис должен быть запущен на локальном сервере и доступен по адресу http://localhost:8000.
+
+Или запустить проект в Докере. Для этого:
+
+1. Дайте разрешение на исполнение скрипта:
+
+```Bash
+chmod +x app.sh
+```
+
+2. Соберите образ:
+
+```Bash
+docker-compose build
+```
+
+3. Запустите его:
+
+```Bash
+docker-compose up
+```
 
 Чтобы ознакомиться с интерактивной документацией, предоставляющей информацию о доступных маршрутах, параметрах запросов, моделях данных и других деталях API, после старта сервера перейдите по ссылке `/docs`.
 

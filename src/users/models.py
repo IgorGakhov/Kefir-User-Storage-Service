@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship, validates
 from passlib import hash as _hash
 import phonenumbers
 
-from src.core.database import Base
+from core.database import Base
 
 
 class UserRole(str, Enum):

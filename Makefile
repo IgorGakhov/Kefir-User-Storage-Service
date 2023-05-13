@@ -30,3 +30,9 @@ freeze:
 
 migrate:
 	alembic upgrade head
+
+docker-build:
+	docker-compose build
+
+docker-up:
+	docker-compose up

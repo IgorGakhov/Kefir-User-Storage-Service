@@ -2,11 +2,11 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from sqlalchemy.orm import Session
 from passlib import hash as _hash
 
-import src.core.database as db
-import src.core.handlers.exceptions as exc
-from src.auth.manager import AuthJWT, check_jwt_user
-from src.users.models import User, UserRole
-from src.users import schemas, utils
+import core.database as db
+import core.handlers.exceptions as exc
+from auth.manager import AuthJWT, check_jwt_user
+from .models import User, UserRole
+from . import schemas, utils
 
 
 router_users = APIRouter(

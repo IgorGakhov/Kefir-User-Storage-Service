@@ -1,0 +1,8 @@
+Dockerfile 
+Makefile 
+.git 
+venv 
+docs 
+tests 
+README.md 
+setup.cfg

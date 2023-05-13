@@ -3,9 +3,9 @@ from typing import List, Tuple, Optional, NewType
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 
-from src.core.database import Base
-from src.users import schemas
-from src.users.models import User, City
+from core.database import Base
+from .models import User, City
+from . import schemas
 
 
 UsersWithCities = NewType(

@@ -2,10 +2,10 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-from src.core.handlers.exceptions import \
+from core.handlers.exceptions import \
     internal_exception_handler, client_http_exception_handler
-from src.auth.router import router as router_auth
-from src.users.router import router_users, router_admin
+from auth.router import router as router_auth
+from users.router import router_users, router_admin
 
 
 app = FastAPI(
